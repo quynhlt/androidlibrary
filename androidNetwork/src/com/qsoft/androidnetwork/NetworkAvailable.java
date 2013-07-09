@@ -7,6 +7,12 @@ import android.net.NetworkInfo;
 /**
  * @author quynhlt
  * 
+ *         HOW TO USE?
+ * 
+ *         NetworkAvailable networkAvailable = new NetworkAvailable(context);
+ * 
+ *         If networkAvailable.isAvailable() return true network is available.
+ * 
  */
 public class NetworkAvailable {
 	private ConnectivityManager connectivityMng;
@@ -14,7 +20,7 @@ public class NetworkAvailable {
 
 	/**
 	 * @param context
-	 *            context
+	 *            Context use to get system service.
 	 */
 	public NetworkAvailable(Context context) {
 		try {
@@ -27,9 +33,9 @@ public class NetworkAvailable {
 	}
 
 	/**
-	 * @return if netword is avaiable.
+	 * @return true if network is available.
 	 */
-	public boolean isEnabled() {
+	public boolean isAvailable() {
 		return connected;
 	}
 }

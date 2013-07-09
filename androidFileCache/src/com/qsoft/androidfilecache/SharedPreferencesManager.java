@@ -8,6 +8,20 @@ import android.content.SharedPreferences.Editor;
 /**
  * @author quynhlt
  * 
+ *         HOW TO USE
+ * 
+ *         SharedPreferencesManager preferencesManager = new
+ *         SharedPreferencesManager(context);
+ * 
+ *         //Allow set string, integer and boolean value. To set new value call
+ *         method:
+ * 
+ *         preferencesManager.setValue(KEY, "test save preferences");
+ * 
+ *         //To get value call method:
+ * 
+ *         String value = preferencesManager.getString(KEY);
+ * 
  */
 public class SharedPreferencesManager {
 	public static final String FILE_NAME_SHARE = "Androidcache";
@@ -41,23 +55,33 @@ public class SharedPreferencesManager {
 	 * @param key
 	 *            The name of the preference to modify.
 	 * @param value
-	 *            The new value for the preference.
+	 *            The new string value for the preference.
 	 */
-	public void setValue(String key, Object value) {
-		if (value instanceof String) {
-			editor.putString(key, String.valueOf(value));
-			editor.commit();
-		}
-		if (value instanceof Boolean) {
-			editor.putBoolean(key, (Boolean) value);
-			editor.commit();
-		}
+	public void setValue(String key, String value) {
+		editor.putString(key, value);
+		editor.commit();
+	}
 
-		if (value instanceof Integer) {
-			editor.putInt(key, (Integer) value);
-			editor.commit();
-		}
+	/**
+	 * @param key
+	 *            The name of the preference to modify.
+	 * @param value
+	 *            The new boolean value for the preference.
+	 */
+	public void setValue(String key, Boolean value) {
+		editor.putBoolean(key, value);
+		editor.commit();
+	}
 
+	/**
+	 * @param key
+	 *            The name of the preference to modify.
+	 * @param value
+	 *            The new integer value for the preference.
+	 */
+	public void setValue(String key, Integer value) {
+		editor.putInt(key, value);
+		editor.commit();
 	}
 
 	/**
